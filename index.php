@@ -3,6 +3,7 @@
 <head>
 
 	<title>Access Google Maps API in PHP</title>
+	<meta charset="utf-8">
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
 	<script type="text/javascript" src="js/googlemap.js"></script>
