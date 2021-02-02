@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.4.1
--- http://www.phpmyadmin.net
+-- version 5.0.2
+-- https://www.phpmyadmin.net/
 --
--- Client :  localhost
--- Généré le :  Lun 01 Février 2021 à 05:05
--- Version du serveur :  5.7.11
--- Version de PHP :  5.6.18
+-- Hôte : 127.0.0.1
+-- Généré le : mar. 02 fév. 2021 à 07:43
+-- Version du serveur :  10.4.13-MariaDB
+-- Version de PHP : 7.4.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -17,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données :  `cartographie`
+-- Base de données : `cartographie`
 --
 
 -- --------------------------------------------------------
@@ -32,7 +33,7 @@ CREATE TABLE `disponible` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Contenu de la table `disponible`
+-- Déchargement des données de la table `disponible`
 --
 
 INSERT INTO `disponible` (`idformation_Formation`, `idEtablissement_Etablissement`) VALUES
@@ -74,7 +75,7 @@ CREATE TABLE `domaine` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Contenu de la table `domaine`
+-- Déchargement des données de la table `domaine`
 --
 
 INSERT INTO `domaine` (`iddomaine_Domaine`, `lib_domaine_Domaine`) VALUES
@@ -98,29 +99,30 @@ CREATE TABLE `etablissement` (
   `mail_Etablissement` varchar(255) DEFAULT NULL,
   `tel_Etablissement` int(11) DEFAULT NULL,
   `idOrganisme_Organisme` int(11) NOT NULL,
-  `idVille_Ville` int(11) NOT NULL
+  `idVille_Ville` int(11) NOT NULL,
+  `img` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Contenu de la table `etablissement`
+-- Déchargement des données de la table `etablissement`
 --
 
-INSERT INTO `etablissement` (`idEtablissement_Etablissement`, `nomEtablissement_Etablissement`, `codeEtab_Etablissement`, `codep_Etablissement`, `ville_Etablissement`, `adresse_Etablissement`, `mail_Etablissement`, `tel_Etablissement`, `idOrganisme_Organisme`, `idVille_Ville`) VALUES
-(1, 'AFPAR', NULL, 97440, 'SAINT ANDRE', NULL, NULL, NULL, 2, 17),
-(2, 'CFA CCI EST SAINT BENOÎT', '9740985C', 97470, 'SAINT BENOÎT', '15 rue Pierre Benoît Dumas\r\n97470 Saint Benoît', 'esrn@reunion.cci.fr', 262500295, 3, 22),
-(3, 'CNAM', '9741246L', 97420, 'LE PORT', '18 Rue Claude Chappe, La Réunion', 'info@cnam.re', 262422837, 4, 24),
-(4, 'DUCRETET (CMAR)', NULL, NULL, NULL, NULL, NULL, NULL, 5, 1),
-(5, 'EPITECH', NULL, 97440, NULL, NULL, NULL, 262290857, 6, 17),
-(16, 'ESIROI', '974', NULL, 'SAINTE CLOTILDE', 'Bâtiment 2, 4, 5 & 6, 2 Rue Joseph Wetzell, Sainte-Clotilde 97490, La Réunion', NULL, NULL, 7, 1),
-(17, 'GRETA REUNION', NULL, NULL, NULL, '8 r Philibert Tsiranana, 97490 SAINT DENIS', NULL, 262418113, 8, 1),
-(18, 'ILOI - Institut de L\'image de l\'Océan Indien', NULL, 97420, NULL, 'Rue du 8 mars - Parc de l Oasis - FAC Pierre Ayma, B.P. 232, Le Port - Reunion 97826, La Réunion', 'info@iloi.fr', 262430881, 9, 24),
-(19, 'Lycée BELLEPIERRE', NULL, 97400, 'SAINT DENIS', 'Boulevard Gaston Monerville, Saint-Denis 97400, La Réunion', NULL, 262907300, 1, 1),
-(20, 'Lycée de Trois Bassins', NULL, 97426, 'TROIS BASSINS', '81 Rue Georges Brassens, La Réunion', 'ce.9741186w@ac-reunion.fr', 262247950, 1, 8),
-(21, 'Lycée NELSON MANDELA', NULL, 97470, 'SAINT BENOIT', '69 Rue des alamandas, Saint-Benoît 97470, La Réunion', 'ce.9741233x@ax-reunion.fr\r\n', 262929681, 1, 22),
-(22, 'Lycée Nord', NULL, 974, NULL, NULL, 'ce.9741620t@ac-reunion.fr', 262982425, 1, 1),
-(23, 'Lycée PIERRE POIVRE', NULL, 97480, 'SAINT JOSEPH', 'Rue Hippolyte Foucque, Saint-Joseph 97480, La Réunion', 'ce.9740952s@ac-reunion.fr', 262566979, 1, 23),
-(24, 'Lycée Roland Garros', NULL, 97430, 'LE TAMPON', '72 Rue Roland Garros, 97430, La Réunion', 'ce.9740002j@ac-reunion.fr', 262578100, 1, 11),
-(25, 'SUPINFO', NULL, 97490, 'STE CHLOTILDE', '97490, 42 Rue de l\'Anjou, Sainte-Clotilde, La Réunion', NULL, NULL, 1, 1);
+INSERT INTO `etablissement` (`idEtablissement_Etablissement`, `nomEtablissement_Etablissement`, `codeEtab_Etablissement`, `codep_Etablissement`, `ville_Etablissement`, `adresse_Etablissement`, `mail_Etablissement`, `tel_Etablissement`, `idOrganisme_Organisme`, `idVille_Ville`, `img`) VALUES
+(1, 'AFPAR', NULL, 97440, 'SAINT ANDRE', '421, chemin Lagourgue  B.P. 501  97440 Saint-André ', NULL, 262588000, 2, 17, 'https://e-cdns-images.dzcdn.net/images/cover/d824ef02cc9d08b363ce92fc6f84e10d/264x264.jpg'),
+(2, 'CFA CCI EST SAINT BENOÎT', '9740985C', 97470, 'SAINT BENOÎT', '15 rue Pierre Benoît Dumas\r\n97470 Saint Benoît', 'esrn@reunion.cci.fr', 262500295, 3, 22, ''),
+(3, 'CNAM', '9741246L', 97420, 'LE PORT', '18 Rue Claude Chappe, La Réunion', 'info@cnam.re', 262422837, 4, 24, ''),
+(4, 'DUCRETET (CMAR)', NULL, NULL, 'SAINT-DENIS', 'Avenue Stanislas GIMART\r\n97490 Ste CLOTILDE', NULL, NULL, 5, 1, ''),
+(5, 'EPITECH', NULL, 97440, 'SAINT-ANDRÉ', '234 Chemin Pente Sassy, 97440, La Réunion', NULL, 262290857, 6, 17, ''),
+(16, 'ESIROI', '974', NULL, 'SAINTE CLOTILDE', 'Bâtiment 2, 4, 5 & 6, 2 Rue Joseph Wetzell, Sainte-Clotilde 97490, La Réunion', NULL, NULL, 7, 1, ''),
+(17, 'GRETA REUNION', NULL, NULL, 'SAINT-DENIS', '8 r Philibert Tsiranana, 97490 SAINT DENIS', NULL, 262418113, 8, 1, ''),
+(18, 'ILOI - Institut de L\'image de l\'Océan Indien', NULL, 97420, 'LE PORT', 'Rue du 8 mars - Parc de l Oasis - FAC Pierre Ayma, B.P. 232, Le Port - Reunion 97826, La Réunion', 'info@iloi.fr', 262430881, 9, 24, ''),
+(19, 'Lycée BELLEPIERRE', NULL, 97400, 'SAINT DENIS', 'Boulevard Gaston Monerville, Saint-Denis 97400, La Réunion', NULL, 262907300, 1, 1, ''),
+(20, 'Lycée de Trois Bassins', NULL, 97426, 'TROIS BASSINS', '81 Rue Georges Brassens, La Réunion', 'ce.9741186w@ac-reunion.fr', 262247950, 1, 8, ''),
+(21, 'Lycée NELSON MANDELA', NULL, 97470, 'SAINT BENOIT', '69 Rue des alamandas, Saint-Benoît 97470, La Réunion', 'ce.9741233x@ax-reunion.fr\r\n', 262929681, 1, 22, ''),
+(22, 'Lycée Nord', NULL, 974, 'SAINTE-CLOTILDE', '1 Chemin des Francisceas, Sainte-Clotilde, La Réunion', 'ce.9741620t@ac-reunion.fr', 262982425, 1, 1, ''),
+(23, 'Lycée PIERRE POIVRE', NULL, 97480, 'SAINT JOSEPH', 'Rue Hippolyte Foucque, Saint-Joseph 97480, La Réunion', 'ce.9740952s@ac-reunion.fr', 262566979, 1, 23, ''),
+(24, 'Lycée Roland Garros', NULL, 97430, 'LE TAMPON', '72 Rue Roland Garros, 97430, La Réunion', 'ce.9740002j@ac-reunion.fr', 262578100, 1, 11, ''),
+(25, 'SUPINFO', NULL, 97490, 'SAINTE-CLOTILDE', '97490, 42 Rue de l\'Anjou, Sainte-Clotilde, La Réunion', NULL, NULL, 1, 1, '');
 
 -- --------------------------------------------------------
 
@@ -141,7 +143,7 @@ CREATE TABLE `formation` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Contenu de la table `formation`
+-- Déchargement des données de la table `formation`
 --
 
 INSERT INTO `formation` (`idformation_Formation`, `nom_Formation`, `description_Formation`, `url_Formation`, `diplome_Formation`, `rec_nationale_Formation`, `periode_Formation`, `nb_diplome_Formation`, `iddomaine_Domaine`) VALUES
@@ -182,7 +184,7 @@ CREATE TABLE `markerstest` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
--- Contenu de la table `markerstest`
+-- Déchargement des données de la table `markerstest`
 --
 
 INSERT INTO `markerstest` (`id`, `name`, `address`, `lat`, `lng`, `type`) VALUES
@@ -208,25 +210,25 @@ CREATE TABLE `marqueur` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Contenu de la table `marqueur`
+-- Déchargement des données de la table `marqueur`
 --
 
 INSERT INTO `marqueur` (`idEtablissement_Etablissement`, `idVille_Ville`, `lat`, `lng`) VALUES
-(1, 17, NULL, NULL),
-(2, 22, NULL, NULL),
-(3, 24, NULL, NULL),
-(4, 1, NULL, NULL),
-(5, 17, NULL, NULL),
-(16, 1, NULL, NULL),
-(17, 1, NULL, NULL),
-(18, 24, NULL, NULL),
-(19, 1, NULL, NULL),
-(20, 8, NULL, NULL),
-(21, 22, NULL, NULL),
-(22, 1, NULL, NULL),
-(23, 23, NULL, NULL),
-(24, 11, NULL, NULL),
-(25, 1, NULL, NULL);
+(1, 17, -20.879587, 55.451595),
+(2, 22, -21.038710, 55.713615),
+(3, 24, -20.950930, 55.317501),
+(4, 1, -20.893270, 55.475212),
+(5, 17, -20.965080, 55.659187),
+(16, 1, -20.891609, 55.478722),
+(17, 1, -20.882299, 55.450401),
+(18, 24, -20.941446, 55.298813),
+(19, 1, -20.895582, 55.449871),
+(20, 8, -21.103775, 55.301323),
+(21, 22, -21.048838, 55.714573),
+(22, 1, -20.911839, 55.478710),
+(23, 23, -21.373981, 55.624073),
+(24, 11, -21.274120, 55.519676),
+(25, 1, -20.902653, 55.489418);
 
 -- --------------------------------------------------------
 
@@ -241,7 +243,7 @@ CREATE TABLE `organisme` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Contenu de la table `organisme`
+-- Déchargement des données de la table `organisme`
 --
 
 INSERT INTO `organisme` (`idOrganisme_Organisme`, `nomOrganisme_Organisme`, `siteOrganisme_Organisme`) VALUES
@@ -268,7 +270,7 @@ CREATE TABLE `secteur` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Contenu de la table `secteur`
+-- Déchargement des données de la table `secteur`
 --
 
 INSERT INTO `secteur` (`idSecteur_Secteur`, `nom_Secteur`) VALUES
@@ -302,7 +304,7 @@ CREATE TABLE `ville` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Contenu de la table `ville`
+-- Déchargement des données de la table `ville`
 --
 
 INSERT INTO `ville` (`idVille_Ville`, `nom_Ville`, `commune_Ville`, `codep_Ville`) VALUES
@@ -332,7 +334,7 @@ INSERT INTO `ville` (`idVille_Ville`, `nom_Ville`, `commune_Ville`, `codep_Ville
 (24, 'LE PORT', NULL, 97420);
 
 --
--- Index pour les tables exportées
+-- Index pour les tables déchargées
 --
 
 --
@@ -402,7 +404,7 @@ ALTER TABLE `ville`
   ADD PRIMARY KEY (`idVille_Ville`);
 
 --
--- AUTO_INCREMENT pour les tables exportées
+-- AUTO_INCREMENT pour les tables déchargées
 --
 
 --
@@ -410,38 +412,45 @@ ALTER TABLE `ville`
 --
 ALTER TABLE `domaine`
   MODIFY `iddomaine_Domaine` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
 -- AUTO_INCREMENT pour la table `etablissement`
 --
 ALTER TABLE `etablissement`
   MODIFY `idEtablissement_Etablissement` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+
 --
 -- AUTO_INCREMENT pour la table `formation`
 --
 ALTER TABLE `formation`
   MODIFY `idformation_Formation` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
 --
 -- AUTO_INCREMENT pour la table `markerstest`
 --
 ALTER TABLE `markerstest`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
 --
 -- AUTO_INCREMENT pour la table `organisme`
 --
 ALTER TABLE `organisme`
   MODIFY `idOrganisme_Organisme` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
 --
 -- AUTO_INCREMENT pour la table `secteur`
 --
 ALTER TABLE `secteur`
   MODIFY `idSecteur_Secteur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
 --
 -- AUTO_INCREMENT pour la table `ville`
 --
 ALTER TABLE `ville`
   MODIFY `idVille_Ville` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+
 --
--- Contraintes pour les tables exportées
+-- Contraintes pour les tables déchargées
 --
 
 --
@@ -477,6 +486,7 @@ ALTER TABLE `marqueur`
 ALTER TABLE `se_situe`
   ADD CONSTRAINT `FK_se_situe_idOrganisme_Organisme` FOREIGN KEY (`idOrganisme_Organisme`) REFERENCES `organisme` (`idOrganisme_Organisme`),
   ADD CONSTRAINT `FK_se_situe_idVille_Ville` FOREIGN KEY (`idVille_Ville`) REFERENCES `ville` (`idVille_Ville`);
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
