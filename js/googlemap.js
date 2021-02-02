@@ -31,6 +31,7 @@ function showAllColleges(allData) {
 		img.style.width = '100px';
 		content.appendChild(img);
 		var lycee = document.createElement('lycee');
+
 		//Ici vous aurez les données à entrer.
 		lycee.innerHTML += '<strong>' + data.nomEtablissement_Etablissement + '</strong>' + '<br />';
 		lycee.innerHTML += data.adresse_Etablissement + '<br />';
@@ -62,7 +63,7 @@ function showAllColleges(allData) {
 		var marker = new google.maps.Marker({
 	      position: new google.maps.LatLng(data.lat, data.lng),
 	      map: map,
-	      icon: "https://zupimages.net/up/21/04/8x3o.png"
+	      //icon: "https://zupimages.net/up/21/04/8x3o.png"
 	    });
 
 	    marker.addListener('mouseover', function(){
